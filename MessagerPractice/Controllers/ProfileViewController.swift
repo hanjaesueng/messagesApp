@@ -23,6 +23,10 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.tableHeaderView = createTableHeader()
+    }
     
     func createTableHeader() -> UIView? {
         guard let email = UserDefaults.standard.string(forKey: "email") else {
