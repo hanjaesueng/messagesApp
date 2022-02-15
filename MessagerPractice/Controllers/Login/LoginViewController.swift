@@ -142,6 +142,8 @@ class LoginViewController: UIViewController {
             let firstname = user?.profile?.familyName
             let lastName = user?.profile?.givenName
             if let email = email {
+                
+                UserDefaults.standard.set(email,forKey: "email")
                 DatabaseManager.shared.userExists(with: email) { exists in
                     if !exists {
                         // insert to dataase
@@ -223,6 +225,12 @@ class LoginViewController: UIViewController {
                 self.present(alert,animated: true)
                 return
             }
+            
+            let user = result.user
+            
+            UserDefaults.standard.set(email,forKey: "email")
+            
+            print("Logged In User : \(user)")
             // 로그인 성공
             self.navigationController?.dismiss(animated: true, completion: nil)
             
@@ -289,7 +297,7 @@ extension LoginViewController : LoginButtonDelegate {
  
             
             
-
+            UserDefaults.standard.set(email,forKey: "email")
             
             DatabaseManager.shared.userExists(with: email) { exists in
                 if !exists {
