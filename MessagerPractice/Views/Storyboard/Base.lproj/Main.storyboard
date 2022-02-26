@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -108,8 +109,40 @@
             </objects>
             <point key="canvasLocation" x="-1316" y="-283"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="acG-5J-jZu">
+            <objects>
+                <viewController id="sK7-zd-h1c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cAv-5p-lrD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-QJ-D12">
+                                <rect key="frame" x="41.5" y="761.5" width="331" height="45"/>
+                                <color key="backgroundColor" name="incomingMessageLabel"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="R3F-wD-kQ2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r6B-QJ-D12" firstAttribute="height" secondItem="cAv-5p-lrD" secondAttribute="height" multiplier="0.05" id="B5x-A7-rXs"/>
+                            <constraint firstItem="r6B-QJ-D12" firstAttribute="width" secondItem="cAv-5p-lrD" secondAttribute="width" multiplier="0.8" id="MYf-uM-IHb"/>
+                            <constraint firstItem="r6B-QJ-D12" firstAttribute="top" secondItem="cAv-5p-lrD" secondAttribute="centerY" multiplier="1.7" id="jIp-TS-lCS"/>
+                            <constraint firstItem="r6B-QJ-D12" firstAttribute="centerX" secondItem="cAv-5p-lrD" secondAttribute="centerX" id="qyb-vN-Wk4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGP-r6-7rv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247" y="-347"/>
+        </scene>
     </scenes>
     <resources>
+        <namedColor name="incomingMessageLabel">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

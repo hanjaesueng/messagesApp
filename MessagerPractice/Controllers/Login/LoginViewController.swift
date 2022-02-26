@@ -142,6 +142,10 @@ class LoginViewController: UIViewController {
             let firstname = user?.profile?.familyName
             let lastName = user?.profile?.givenName
             if let email = email {
+                
+                UserDefaults.standard.set(email,forKey: "email")
+                UserDefaults.standard.set("\(firstname) \(lastName)",forKey: "name")
+                
                 DatabaseManager.shared.userExists(with: email) { exists in
                     if !exists {
                         // insert to dataase
@@ -223,6 +227,26 @@ class LoginViewController: UIViewController {
                 self.present(alert,animated: true)
                 return
             }
+            
+            let user = result.user
+            
+            let safeEmail = DatabaseManager.safeEmail(email: email)
+            DatabaseManager.shared.getDataFor(path: safeEmail) { result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String : Any],
+                          let firstName = userData["first_name"],
+                          let lastName = userData["last_name"] else {return}
+                    UserDefaults.standard.set("\(firstName) \(lastName)",forKey: "name")
+                case .failure(let error):
+                    print("Failed to read data with error \(error)")
+                }
+            }
+            
+            
+            UserDefaults.standard.set(email,forKey: "email")
+            
+            print("Logged In User : \(user)")
             // 로그인 성공
             self.navigationController?.dismiss(animated: true, completion: nil)
             
@@ -288,8 +312,8 @@ extension LoginViewController : LoginButtonDelegate {
                   }
  
             
-            
-
+            UserDefaults.standard.set("\(firstName) \(lastName)",forKey: "name")
+            UserDefaults.standard.set(email,forKey: "email")
             
             DatabaseManager.shared.userExists(with: email) { exists in
                 if !exists {
