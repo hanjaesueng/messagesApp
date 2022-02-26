@@ -177,7 +177,6 @@ class RegisterViewController: UIViewController {
             guard !exists else {
                 self.alerUserLoingError(message: "Looks like a user account for that email address already exist")
                 return
-
             }
             //Firebase register
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result,error  in

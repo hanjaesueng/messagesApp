@@ -4,10 +4,8 @@
 //
 //  Created by jaeseung han on 2022/02/06.
 //
-
 import UIKit
 import JGProgressHUD
-
 import SwiftUI
 
 class NewConversationViewController: UIViewController {
@@ -20,7 +18,7 @@ class NewConversationViewController: UIViewController {
     
     private var results = [SearchResult]()
     private var hasFetched = false
-  
+    
     private let searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search for Users..."
@@ -46,7 +44,6 @@ class NewConversationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.addSubview(noResultsLabel)
         view.addSubview(tableView)
         tableView.delegate = self
@@ -58,7 +55,6 @@ class NewConversationViewController: UIViewController {
         searchBar.becomeFirstResponder()
     }
     
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -70,7 +66,6 @@ class NewConversationViewController: UIViewController {
     }
 
 }
-
 
 extension NewConversationViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

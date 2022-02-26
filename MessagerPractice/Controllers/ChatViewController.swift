@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
 
 import InputBarAccessoryView
 import SDWebImage
@@ -51,6 +52,7 @@ struct Sender : SenderType {
     public var photoURL: String
     public var senderId: String
     public var displayName: String
+
 }
 
 struct Media : MediaItem {
@@ -59,9 +61,11 @@ struct Media : MediaItem {
     var placeholderImage: UIImage
     var size: CGSize
 
+
 }
 
 class ChatViewController: MessagesViewController {
+
 
 
     public static let dateFormatter : DateFormatter = {
@@ -69,6 +73,7 @@ class ChatViewController: MessagesViewController {
 //        formatter.dateStyle = .medium
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        formatter.timeStyle = .long
+
         formatter.locale = .current
         return formatter
     }()
@@ -103,12 +108,11 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .red
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-
         messagesCollectionView.messageCellDelegate = self
         messageInputBar.delegate = self
         setupInputButton()
@@ -184,6 +188,7 @@ class ChatViewController: MessagesViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
+
     }
     
     private func listenForMessages(id:String,shouldScrollToBottom:Bool) {
@@ -208,6 +213,7 @@ class ChatViewController: MessagesViewController {
                 print("failed to get messages : \(error)")
             }
         }
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -290,9 +296,9 @@ extension ChatViewController : UIImagePickerControllerDelegate,UINavigationContr
         }
         
         
-      
     }
 }
+
 
 extension ChatViewController : InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
@@ -340,7 +346,6 @@ extension ChatViewController : InputBarAccessoryViewDelegate {
         print("created message id:",newIdentifier)
         return newIdentifier
     }
-
 }
 
 extension ChatViewController : MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -350,7 +355,6 @@ extension ChatViewController : MessagesDataSource, MessagesDisplayDelegate, Mess
             return sender
         }
         fatalError("Self Sender is nil, email should be cached")
-
 
     }
     

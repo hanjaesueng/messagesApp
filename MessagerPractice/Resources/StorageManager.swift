@@ -42,9 +42,7 @@ final class StorageManager {
         }
     }
     
-<<<<<<< HEAD
 
-=======
     /// Upload video that will be sent in a conversation message
     public func uploadMessageVideo(with fileUrl: URL,fileName: String,completion :@escaping UploadPictureCompletion){
         print(fileName)
@@ -70,8 +68,6 @@ final class StorageManager {
             }
         }
     }
-    
->>>>>>> 098206f ([title]video message and search filtering config)
     /// Upload image that will be sent in a conversation message
     public func uploadMessagePhoto(with data: Data,fileName: String,completion :@escaping UploadPictureCompletion){
         storage.child("message_images/\(fileName)").putData(data,metadata: nil) {[weak self] metaData, error in
