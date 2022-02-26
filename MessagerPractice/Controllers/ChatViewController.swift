@@ -8,7 +8,7 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
-
+import CoreLocation
 import InputBarAccessoryView
 import SDWebImage
 import AVFoundation
@@ -20,6 +20,7 @@ struct Message : MessageType {
     public var sentDate: Date
     public var kind: MessageKind
 }
+
 extension MessageKind {
     var messageKindString : String {
         switch self{
@@ -60,8 +61,11 @@ struct Media : MediaItem {
     var image: UIImage?
     var placeholderImage: UIImage
     var size: CGSize
+}
 
-
+struct Location : LocationItem {
+    var location: CLLocation
+    var size: CGSize
 }
 
 class ChatViewController: MessagesViewController {
@@ -142,10 +146,42 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: { [weak self] _ in
             
         }))
+        actionSheet.addAction(UIAlertAction(title: "Location", style: .default, handler: { [weak self] _ in
+            self?.presentLocationInputActionsheet()
+        }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
     }
     
+    private func presentLocationInputActionsheet(){
+        
+        let vc = LocationPickerViewController(coordinates: nil)
+        vc.title = "Pick Location"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { [weak self] selectedLocation in
+            guard let self = self else {return}
+            guard let messageId = self.createMessageId(),
+                  let conversationID = self.conversationId,
+                  let name = self.title,
+                  let selfSender = self.selfSender else {return}
+            
+            let longitude = selectedLocation.longitude
+            let latitude = selectedLocation.latitude
+            print("lon :",longitude,"lat :",latitude)
+            
+            let locationData = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: .zero)
+            let mmessage = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .location(locationData))
+            
+            DatabaseManager.shared.sendMessage(to: conversationID, otheruserEmail: self.otherUserEmail, name: name, message: mmessage) { success in
+                if success {
+                    print("sent location message")
+                } else {
+                    print("failed to send location message")
+                }
+            }
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
     private func presentPhotoInputActionsheet(){
         let actionSheet = UIAlertController(title: "Attach Media", message: "Where would you like to attach a photo from?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
@@ -387,6 +423,27 @@ extension ChatViewController : MessagesDataSource, MessagesDisplayDelegate, Mess
 
 extension ChatViewController : MessageCellDelegate {
   
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            
+            return
+        }
+        
+        
+        let message = messages[indexPath.section]
+        
+        switch message.kind {
+        case .location(let locationData):
+            let coordinates = locationData.location.coordinate
+            let vc = LocationPickerViewController(coordinates: coordinates)
+            vc.title = "Location"
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+
+    }
+    
     func didTapImage(in cell: MessageCollectionViewCell) {
         guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
             

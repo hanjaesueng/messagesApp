@@ -27,6 +27,7 @@
 		DB2FE57827BC930F0089E502 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE57727BC930F0089E502 /* ConversationTableViewCell.swift */; };
 		DBB0C71527BB46DC0001E486 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0C71427BB46DC0001E486 /* ChatViewController.swift */; };
 		DBB0C71727BB6E460001E486 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0C71627BB6E460001E486 /* StorageManager.swift */; };
+		DBEC6FB927CA538B000C521C /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		DB2FE57727BC930F0089E502 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		DBB0C71427BB46DC0001E486 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DBB0C71627BB6E460001E486 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		E0E4C4B29EC2F2FBD5402A13 /* Pods-MessagerPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagerPractice.release.xcconfig"; path = "Target Support Files/Pods-MessagerPractice/Pods-MessagerPractice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				38B1E72427AFDA97001D54C3 /* VideoPlayerViewController.swift */,
 				38B1E72627AFDABD001D54C3 /* NewConversationViewController.swift */,
 				38B1E72827AFDAD1001D54C3 /* ProfileViewController.swift */,
+				DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				DBB0C71527BB46DC0001E486 /* ChatViewController.swift in Sources */,
 				38B1E72327AFDA88001D54C3 /* PhotoViewerViewController.swift in Sources */,
 				DBB0C71727BB6E460001E486 /* StorageManager.swift in Sources */,
+				DBEC6FB927CA538B000C521C /* LocationPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
