@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38AEE22727C70C6D00FB09D5 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AEE22627C70C6D00FB09D5 /* NewConversationCell.swift */; };
 		38B1E70527AFD815001D54C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E70427AFD815001D54C3 /* AppDelegate.swift */; };
 		38B1E70727AFD815001D54C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E70627AFD815001D54C3 /* SceneDelegate.swift */; };
 		38B1E70927AFD815001D54C3 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E70827AFD815001D54C3 /* ConversationViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38AEE22627C70C6D00FB09D5 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		38B1E70127AFD815001D54C3 /* MessagerPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagerPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B1E70427AFD815001D54C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B1E70627AFD815001D54C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				38B1E71D27AFD961001D54C3 /* Storyboard */,
 				38B1E70D27AFD817001D54C3 /* Assets.xcassets */,
 				DB2FE57727BC930F0089E502 /* ConversationTableViewCell.swift */,
+				38AEE22627C70C6D00FB09D5 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38B1E71F27AFDA5B001D54C3 /* LoginViewController.swift in Sources */,
+				38AEE22727C70C6D00FB09D5 /* NewConversationCell.swift in Sources */,
 				38EC69E427B0D91800047820 /* DatabaseManager.swift in Sources */,
 				38B1E72127AFDA6A001D54C3 /* RegisterViewController.swift in Sources */,
 				38B1E72727AFDABD001D54C3 /* NewConversationViewController.swift in Sources */,
@@ -466,6 +470,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessagerPractice/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to send audio and video messages";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -499,6 +504,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessagerPractice/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to send audio and video messages";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

@@ -334,6 +334,7 @@ extension DatabaseManager {
     
     /// Fetches and returns all conversations for the user with passed in email
     public func getAllConversations(for email : String, completion : @escaping (Result<[Conversation],Error>) -> Void){
+        print("\(email)/conversations")
         database.child("\(email)/conversations").observe(.value) { sanpShot in
             guard let value = sanpShot.value as? [[String:Any]] else {
                 completion(.failure(DatabaseError.failedToFetch))
@@ -366,6 +367,7 @@ extension DatabaseManager {
             }
             print(value)
             let messages : [Message] = value.compactMap { dictionary in
+                
                 guard let name = dictionary["name"] as? String,
                       let isRead = dictionary["is_read"] as? Bool,
                       let messageID = dictionary["id"] as? String,
@@ -376,7 +378,7 @@ extension DatabaseManager {
                       let date = ChatViewController.dateFormatter.date(from: dateString) else {
                           return nil
                       }
-                
+                print("debug messages : message made")
                 var kind : MessageKind?
                 if type == "photo" {
                     guard let imageUrl = URL(string: content), let placeHolder = UIImage(systemName: "plus") else {
@@ -384,6 +386,12 @@ extension DatabaseManager {
                     }
                     let media = Media(url: imageUrl, image: nil, placeholderImage: placeHolder, size: CGSize(width: 300, height: 300))
                     kind = .photo(media)
+                } else if type == "video" {
+                    guard let videoUrl = URL(string: content), let placeHolder = UIImage(named: "video_placeholder") else {
+                        return nil
+                    }
+                    let media = Media(url: videoUrl, image: nil, placeholderImage: placeHolder, size: CGSize(width: 300, height: 300))
+                    kind = .video(media)
                 } else {
                     kind = .text(content)
                 }
@@ -431,8 +439,10 @@ extension DatabaseManager {
                     messageContent = targetUrlString
                 }
                 
-            case .video(_):
-                break
+            case .video(let media):
+                if let targetUrlString = media.url?.absoluteString {
+                    messageContent = targetUrlString
+                }
             case .location(_):
                 break
             case .emoji(_):
@@ -567,4 +577,8 @@ struct ChatAppUser {
         //afraz9-gmail-com_profile_picture.png
         return "\(safeEmail)_profile_picture.png"
     }
+}
+
+struct MessagesDecoder : Codable {
+    
 }
