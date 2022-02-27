@@ -9,6 +9,7 @@ import FirebaseDatabase
 import MessageKit
 import CoreLocation
 
+/// Manager object to read and write to real time firebase database
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
@@ -24,8 +25,10 @@ final class DatabaseManager {
 }
 
 extension DatabaseManager {
+    
+    /// Returns dictionary node at child path
     public func getDataFor(path : String, completion : @escaping (Result<Any,Error>) -> Void) {
-        self.database.child(path).observeSingleEvent(of: .value) { snapShot in
+        database.child(path).observeSingleEvent(of: .value) { snapShot in
             guard let value = snapShot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -38,7 +41,7 @@ extension DatabaseManager {
 // MARK: - Account Management
 extension DatabaseManager {
     
-    //check exists
+    ///check if user exists
     public func userExists(with email : String,
                            completion : @escaping (Bool)->()) {
         let safeEmail = DatabaseManager.safeEmail(email: email)
@@ -60,7 +63,8 @@ extension DatabaseManager {
         database.child(user.safeEmail).setValue([
             "first_name":user.firstName,
             "last_name":user.lastName
-        ]) { error, _ in
+        ]) {[weak self] error, _ in
+            guard let self = self else {return}
             guard error == nil else {
                 completion(false)
                 print("failed to write to database")
@@ -70,6 +74,7 @@ extension DatabaseManager {
             
             self.database.child("users").observeSingleEvent(of: .value) { snapShot in
                 print("check snapShot :",snapShot.value)
+                
                 if var usersCollection = snapShot.value as? [[String:String]] {
                     // append to user dictionary
                     let newElement = ["name":user.firstName + " " + user.lastName,"email":user.safeEmail]
@@ -115,6 +120,13 @@ extension DatabaseManager {
     
     public enum DatabaseError : Error {
         case failedToFetch
+        
+        public var localizedDescription : String {
+            switch self {
+            case .failedToFetch:
+                return "This means blat failed"
+            }
+        }
     }
     
     /*

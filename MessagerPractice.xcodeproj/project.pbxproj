@@ -17,7 +17,6 @@
 		38B1E71F27AFDA5B001D54C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E71E27AFDA5B001D54C3 /* LoginViewController.swift */; };
 		38B1E72127AFDA6A001D54C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72027AFDA6A001D54C3 /* RegisterViewController.swift */; };
 		38B1E72327AFDA88001D54C3 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72227AFDA88001D54C3 /* PhotoViewerViewController.swift */; };
-		38B1E72527AFDA97001D54C3 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72427AFDA97001D54C3 /* VideoPlayerViewController.swift */; };
 		38B1E72727AFDABD001D54C3 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72627AFDABD001D54C3 /* NewConversationViewController.swift */; };
 		38B1E72927AFDAD1001D54C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72827AFDAD1001D54C3 /* ProfileViewController.swift */; };
 		38B1E72C27AFDFD3001D54C3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E72B27AFDFD3001D54C3 /* Extension.swift */; };
@@ -25,6 +24,10 @@
 		38EC69E427B0D91800047820 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC69E327B0D91800047820 /* DatabaseManager.swift */; };
 		BFEE79FF8CB31DE62A5F4F55 /* Pods_MessagerPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D382DA951AFC650CB6F33E71 /* Pods_MessagerPractice.framework */; };
 		DB2FE57827BC930F0089E502 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE57727BC930F0089E502 /* ConversationTableViewCell.swift */; };
+		DB5FE6A527CB9B82004C8A46 /* ConversationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE6A427CB9B82004C8A46 /* ConversationModels.swift */; };
+		DB5FE6A727CB9BBA004C8A46 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE6A627CB9BBA004C8A46 /* ChatModels.swift */; };
+		DB5FE6A927CB9BF9004C8A46 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE6A827CB9BF9004C8A46 /* SearchResult.swift */; };
+		DB5FE6AB27CB9C3E004C8A46 /* ProfileViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE6AA27CB9C3E004C8A46 /* ProfileViewModels.swift */; };
 		DBB0C71527BB46DC0001E486 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0C71427BB46DC0001E486 /* ChatViewController.swift */; };
 		DBB0C71727BB6E460001E486 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0C71627BB6E460001E486 /* StorageManager.swift */; };
 		DBEC6FB927CA538B000C521C /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */; };
@@ -43,7 +46,6 @@
 		38B1E71E27AFDA5B001D54C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		38B1E72027AFDA6A001D54C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		38B1E72227AFDA88001D54C3 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
-		38B1E72427AFDA97001D54C3 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		38B1E72627AFDABD001D54C3 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		38B1E72827AFDAD1001D54C3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		38B1E72B27AFDFD3001D54C3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -52,6 +54,10 @@
 		9288D6677E631A37A032A4E9 /* Pods-MessagerPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagerPractice.debug.xcconfig"; path = "Target Support Files/Pods-MessagerPractice/Pods-MessagerPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		D382DA951AFC650CB6F33E71 /* Pods_MessagerPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagerPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2FE57727BC930F0089E502 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		DB5FE6A427CB9B82004C8A46 /* ConversationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversationModels.swift; path = MessagerPractice/Controllers/ConversationModels.swift; sourceTree = SOURCE_ROOT; };
+		DB5FE6A627CB9BBA004C8A46 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatModels.swift; path = MessagerPractice/Controllers/ChatModels.swift; sourceTree = SOURCE_ROOT; };
+		DB5FE6A827CB9BF9004C8A46 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResult.swift; path = MessagerPractice/Controllers/SearchResult.swift; sourceTree = SOURCE_ROOT; };
+		DB5FE6AA27CB9C3E004C8A46 /* ProfileViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModels.swift; path = MessagerPractice/Controllers/ProfileViewModels.swift; sourceTree = SOURCE_ROOT; };
 		DBB0C71427BB46DC0001E486 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DBB0C71627BB6E460001E486 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +115,6 @@
 				38B1E72A27AFDB93001D54C3 /* Login */,
 				DBB0C71427BB46DC0001E486 /* ChatViewController.swift */,
 				38B1E72227AFDA88001D54C3 /* PhotoViewerViewController.swift */,
-				38B1E72427AFDA97001D54C3 /* VideoPlayerViewController.swift */,
 				38B1E72627AFDABD001D54C3 /* NewConversationViewController.swift */,
 				38B1E72827AFDAD1001D54C3 /* ProfileViewController.swift */,
 				DBEC6FB827CA538B000C521C /* LocationPickerViewController.swift */,
@@ -131,6 +136,10 @@
 		38B1E71A27AFD921001D54C3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DB5FE6A427CB9B82004C8A46 /* ConversationModels.swift */,
+				DB5FE6A627CB9BBA004C8A46 /* ChatModels.swift */,
+				DB5FE6A827CB9BF9004C8A46 /* SearchResult.swift */,
+				DB5FE6AA27CB9C3E004C8A46 /* ProfileViewModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,16 +337,19 @@
 				38B1E71F27AFDA5B001D54C3 /* LoginViewController.swift in Sources */,
 				38AEE22727C70C6D00FB09D5 /* NewConversationCell.swift in Sources */,
 				38EC69E427B0D91800047820 /* DatabaseManager.swift in Sources */,
+				DB5FE6A727CB9BBA004C8A46 /* ChatModels.swift in Sources */,
 				38B1E72127AFDA6A001D54C3 /* RegisterViewController.swift in Sources */,
 				38B1E72727AFDABD001D54C3 /* NewConversationViewController.swift in Sources */,
 				38B1E70927AFD815001D54C3 /* ConversationViewController.swift in Sources */,
-				38B1E72527AFDA97001D54C3 /* VideoPlayerViewController.swift in Sources */,
 				38B1E72C27AFDFD3001D54C3 /* Extension.swift in Sources */,
+				DB5FE6A927CB9BF9004C8A46 /* SearchResult.swift in Sources */,
 				38B1E70527AFD815001D54C3 /* AppDelegate.swift in Sources */,
 				38B1E72927AFDAD1001D54C3 /* ProfileViewController.swift in Sources */,
 				38B1E70727AFD815001D54C3 /* SceneDelegate.swift in Sources */,
 				DB2FE57827BC930F0089E502 /* ConversationTableViewCell.swift in Sources */,
 				DBB0C71527BB46DC0001E486 /* ChatViewController.swift in Sources */,
+				DB5FE6AB27CB9C3E004C8A46 /* ProfileViewModels.swift in Sources */,
+				DB5FE6A527CB9B82004C8A46 /* ConversationModels.swift in Sources */,
 				38B1E72327AFDA88001D54C3 /* PhotoViewerViewController.swift in Sources */,
 				DBB0C71727BB6E460001E486 /* StorageManager.swift in Sources */,
 				DBEC6FB927CA538B000C521C /* LocationPickerViewController.swift in Sources */,

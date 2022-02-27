@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationPickerViewController: UIViewController {
+final class LocationPickerViewController: UIViewController {
 
     public var completion : ((CLLocationCoordinate2D) -> Void)?
     
@@ -22,7 +22,7 @@ class LocationPickerViewController: UIViewController {
     }()
     init(coordinates : CLLocationCoordinate2D?) {
         self.coordinate = coordinates
-        isPickable = false
+        isPickable = coordinates == nil
         super.init(nibName: nil, bundle: nil)
     }
     

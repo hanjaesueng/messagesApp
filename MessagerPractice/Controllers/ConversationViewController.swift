@@ -9,20 +9,11 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-struct Conversation {
-    let id : String
-    let name : String
-    let otherUserEmail : String
-    let latestMessage : LatestMessage
-}
 
-struct LatestMessage {
-    let date : String
-    let text : String
-    let isRead : Bool
-}
 
-class ConversationViewController: UIViewController {
+
+/// controller that shows list of conversations
+final class ConversationViewController: UIViewController {
 
     
     private let spinner = JGProgressHUD(style: .dark)
@@ -42,7 +33,7 @@ class ConversationViewController: UIViewController {
         let label = UILabel()
         label.text = "No Conversations!"
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .green
         label.font = .systemFont(ofSize: 21, weight: .medium)
         label.isHidden = true
         return label
@@ -87,6 +78,7 @@ class ConversationViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
+                self?.noConversationsLabel.isHidden = false
                 print("Failed to get convos : \(error)")
             }
         }
@@ -211,12 +203,13 @@ extension ConversationViewController : UITableViewDelegate,UITableViewDataSource
             //begin delete
             let conversationid = conversations[indexPath.row].id
             tableView.beginUpdates()
-            
-            DatabaseManager.shared.deleteConversation(conversationId: conversationid) {[weak self] success in
-                if success {
-                    self?.conversations.remove(at: indexPath.row)
+            conversations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            DatabaseManager.shared.deleteConversation(conversationId: conversationid) {success in
+                if !success {
+                   // add model and row back and show error alert
+                    print("failed to delete")
                     
-                    tableView.deleteRows(at: [indexPath], with: .left)
                 }
             }
             
