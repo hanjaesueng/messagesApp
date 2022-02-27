@@ -41,6 +41,9 @@ class ProfileViewController: UIViewController {
                                           style: .destructive,
                                           handler: {[weak self] _ in
                 guard let self = self else {return}
+                
+                UserDefaults.standard.setValue(nil, forKey: "email")
+                UserDefaults.standard.setValue(nil, forKey: "name")
                 if self.isFacebookLoggedIn() {
                     LoginManager.init().logOut()
                 }
